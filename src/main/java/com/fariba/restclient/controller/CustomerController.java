@@ -20,14 +20,14 @@ public class CustomerController {
     public String listCustomer(Model theModel) {
         List<Customer> customers = customerService.getCustomers();
         theModel.addAttribute("customers", customers);
-        return "list-customer";
+        return "list-customers";
     }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "cutomer-form";
+        return "customer-form";
     }
 
     @PostMapping("/saveCustomer")
@@ -40,7 +40,7 @@ public class CustomerController {
     public String showFormForUpdate(@RequestParam("customerId") int id, Model model) {
         Customer customer = customerService.getCustomer(id);
         model.addAttribute("customer", customer);
-        return "cutomer-form";
+        return "customer-form";
     }
 
     @GetMapping("/delete")
